@@ -1,0 +1,39 @@
+{
+  "movies": [
+    {
+      "name": "American Pie",
+      "genre": "comedy",
+      "duration": 150,
+      "rating": 6.5,
+      "id": 7
+    },
+    {
+      "name": "Shutter Island",
+      "genre": "Mystery",
+      "duration": 180,
+      "rating": 8.7,
+      "id": 8
+    },
+    {
+      "name": "Forest Gump",
+      "genre": "Drama",
+      "duration": 120,
+      "rating": 9.5,
+      "id": 9
+    },
+    {
+      "name": "zikina dinastija",
+      "genre": "komedija",
+      "duration": 500,
+      "rating": 8.6,
+      "id": 10
+    },
+    {
+      "name": "Bad Boys 3",
+      "genre": "Action",
+      "duration": 120,
+      "rating": 8.7,
+      "id": 11
+    }
+  ]
+}

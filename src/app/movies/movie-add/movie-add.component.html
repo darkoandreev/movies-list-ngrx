@@ -1,0 +1,34 @@
+<mat-accordion>
+    <mat-expansion-panel>
+        <mat-expansion-panel-header>
+            <mat-panel-title>
+                Add movie
+            </mat-panel-title>
+            <mat-panel-description>
+                About movie
+            </mat-panel-description>
+        </mat-expansion-panel-header>
+
+        <form [formGroup]="movieForm" (ngSubmit)="onSubmit()">
+            <mat-form-field>
+                <input type="text" matInput placeholder="Name" formControlName="name">
+            </mat-form-field>
+
+            <mat-form-field>
+                <input type="number" matInput placeholder="Duration in minutes" formControlName="duration">
+            </mat-form-field>
+
+            <mat-form-field>
+                <input type="text" matInput placeholder="Genre" formControlName="genre">
+            </mat-form-field>
+
+            <mat-form-field>
+                <input type="number" matInput placeholder="Rating" formControlName="rating">
+            </mat-form-field>
+
+            <mat-action-row>
+                <button mat-button type="submit" color="primary">Add movie</button>
+            </mat-action-row>
+        </form>
+    </mat-expansion-panel>
+</mat-accordion>
