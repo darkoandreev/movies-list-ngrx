@@ -1,7 +1,7 @@
 import { NgModule } from '@angular/core';
 import { CommonModule } from '@angular/common';
-import { MoviesComponent } from './movies.component';
-import { MoviesListComponent } from './movies-list/movies-list.component';
+import { MoviesComponent } from './movies/movies.component';
+import { MoviesListComponent } from './movies/movies-list/movies-list.component';
 import { MatListModule } from '@angular/material/list';
 import { MoviesRoutingModule } from './movies-routing.module';
 import { HttpClientModule } from '@angular/common/http';
@@ -15,7 +15,7 @@ import { MatFormFieldModule } from '@angular/material/form-field';
 import { MatIconModule } from '@angular/material/icon';
 import { MatInputModule } from '@angular/material/input';
 import { MatSnackBarModule } from '@angular/material/snack-bar';
-import { MovieAddComponent } from './movie-add/movie-add.component';
+import { MovieAddComponent } from './movies/movie-add/movie-add.component';
 import { ReactiveFormsModule, FormsModule } from '@angular/forms';
 import { MoviesListFacade } from './store/facades/movies-list.facade';
 

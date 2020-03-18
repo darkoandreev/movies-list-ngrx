@@ -1,7 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import { Observable } from 'rxjs';
-import { IMovie } from './store/models/movie.interface';
-import { MoviesListFacade } from './store/facades/movies-list.facade';
+import { IMovie } from '../store/models/movie.interface';
+import { MoviesListFacade } from '../store/facades/movies-list.facade';
 
 @Component({
   selector: 'app-movies',
