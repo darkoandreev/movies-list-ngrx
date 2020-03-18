@@ -8,7 +8,8 @@ Run `ng serve` for a dev server. Navigate to `http://localhost:4200/`. The app w
 
 ***
 
-Run `json-server db.json --watch` to start development fake backend.
+Run `json-server db.json --watch` to start development fake backend. In order to start it, you will need `json-server` package.
+Install it with `npm i json-server`.
 
 ## Code scaffolding
 
