@@ -1,10 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import { Observable } from 'rxjs';
 import { IMovie } from './store/models/movie.interface';
-import { Store, select } from '@ngrx/store';
-import { IState } from './store/reducers';
-import { getMoviesList } from './store/selectors';
-import { getMovies, addMovie, deleteMovie, editMovie } from './store/actions/movies-list.actions';
+import { MoviesListFacade } from './store/facades/movies-list.facade';
 
 @Component({
   selector: 'app-movies',
@@ -12,19 +9,19 @@ import { getMovies, addMovie, deleteMovie, editMovie } from './store/actions/mov
   styleUrls: ['./movies.component.scss']
 })
 export class MoviesComponent implements OnInit {
-  movies$: Observable<IMovie[]> = this.store.pipe(select(getMoviesList))
-  movie: IMovie;
-  constructor(private store: Store<IState>) { }
+  public movies$: Observable<IMovie[]> = this.moviesListFacade.movies$;
+
+  constructor(public moviesListFacade: MoviesListFacade) { }
 
   ngOnInit() {
-    this.store.dispatch(getMovies());
+    this.moviesListFacade.getMovies();
   }
 
   onSubmit(movie: IMovie): void {
-    this.store.dispatch(this.movie ? editMovie({ movie }) : addMovie({ movie }));
+    this.moviesListFacade.addMovie(movie);
   }
 
   deleteMovie(id: number): void {
-    this.store.dispatch(deleteMovie({ id }));
+    this.moviesListFacade.deleteMovie(id);
   }
 }

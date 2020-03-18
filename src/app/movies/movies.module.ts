@@ -17,6 +17,7 @@ import { MatInputModule } from '@angular/material/input';
 import { MatSnackBarModule } from '@angular/material/snack-bar';
 import { MovieAddComponent } from './movie-add/movie-add.component';
 import { ReactiveFormsModule, FormsModule } from '@angular/forms';
+import { MoviesListFacade } from './store/facades/movies-list.facade';
 
 @NgModule({
   declarations: [MoviesComponent, MoviesListComponent, MovieAddComponent],
@@ -35,6 +36,7 @@ import { ReactiveFormsModule, FormsModule } from '@angular/forms';
     ReactiveFormsModule,
     StoreModule.forFeature(moviesFeatureName, moviesReducerMap),
     EffectsModule.forFeature([MovieEffects])
-  ]
+  ],
+  providers: [MoviesListFacade]
 })
 export class MoviesModule { }

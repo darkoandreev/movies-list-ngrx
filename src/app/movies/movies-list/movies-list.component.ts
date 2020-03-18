@@ -11,4 +11,10 @@ export class MoviesListComponent {
   @Input() movies: IMovie[];
   @Output() deleteMovieEvent: EventEmitter<number> = new EventEmitter();
   @Output() itemClickedEvent: EventEmitter<IMovie> = new EventEmitter();
+
+  deleteItem(event: MouseEvent, id: number): void {
+    event.preventDefault();
+    event.stopImmediatePropagation();
+    this.deleteMovieEvent.emit(id);
+  }
 }

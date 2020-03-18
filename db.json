@@ -2,7 +2,7 @@
   "movies": [
     {
       "id": 7,
-      "name": "American Pie123",
+      "name": "American Pie",
       "genre": "comedy",
       "duration": 150,
       "rating": 6.5
@@ -15,18 +15,18 @@
       "id": 8
     },
     {
+      "id": 9,
       "name": "Forest Gump",
       "genre": "Drama",
       "duration": 120,
-      "rating": 9.5,
-      "id": 9
+      "rating": 9.5
     },
     {
+      "id": 10,
       "name": "zikina dinastija",
       "genre": "komedija",
       "duration": 500,
-      "rating": 8.6,
-      "id": 10
+      "rating": 8.6
     },
     {
       "name": "Bad Boys 3",

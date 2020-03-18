@@ -13,16 +13,16 @@ export class MovieAddComponent implements OnChanges {
   @ViewChild(MatExpansionPanel) expansionPanel: MatExpansionPanel;
 
   @Input() movie: IMovie;
+  @Output() movieSubmit: EventEmitter<IMovie> = new EventEmitter();
+  @Output() closeEditModeEvent: EventEmitter<void> = new EventEmitter();
 
-  movieForm = new FormGroup({
+  public movieForm = new FormGroup({
     id: new FormControl(''),
     name: new FormControl(''),
     genre: new FormControl(''),
     duration: new FormControl(''),
     rating: new FormControl('')
   });
-
-  @Output() movieSubmit: EventEmitter<IMovie> = new EventEmitter();
 
   ngOnChanges(changes: SimpleChanges): void {
     if('movie' in changes && changes.movie.currentValue) {
@@ -36,4 +36,9 @@ export class MovieAddComponent implements OnChanges {
     this.movieSubmit.emit(movie);
   }
 
+  closeEdit(): void {
+    this.movieForm.reset();
+    this.expansionPanel.close();
+    this.closeEditModeEvent.emit();
+  }
 }
