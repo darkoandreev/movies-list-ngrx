@@ -11,6 +11,11 @@ export const addMovie = createAction('[Movies list] Add movie', props<{ movie: I
 export const addMovieSuccess = createAction('[Movies list] Add movie success', props<{ movie: IMovie }>())
 export const addMovieFailed = createAction('[Movies list] Add movie failed', (error: Error) => ({ error }));
 
+// Edit movie
+export const editMovie = createAction('[Movies list] Edit movie', props<{ movie: IMovie }>())
+export const editMovieSuccess = createAction('[Movies list] Edit movie success', props<{ movie: IMovie }>())
+export const editMovieFailed = createAction('[Movies list] Edit movie failed', (error: Error) => ({ error }));
+
 // Delete movie
 export const deleteMovie = createAction('[Movies list] Delete movie', props<{ id: number }>())
 export const deleteMovieSuccess = createAction('[Movies list] Delete movie success', props<{ id: number }>())

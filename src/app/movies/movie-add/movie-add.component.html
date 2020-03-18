@@ -2,7 +2,7 @@
     <mat-expansion-panel>
         <mat-expansion-panel-header>
             <mat-panel-title>
-                Add movie
+                {{ this.movie ? 'Edit movie' : 'Add movie' }}
             </mat-panel-title>
             <mat-panel-description>
                 About movie
@@ -27,7 +27,7 @@
             </mat-form-field>
 
             <mat-action-row>
-                <button mat-button type="submit" color="primary">Add movie</button>
+                <button mat-button type="submit" color="primary">{{ this.movie ? 'Edit movie' : 'Add movie' }}</button>
             </mat-action-row>
         </form>
     </mat-expansion-panel>

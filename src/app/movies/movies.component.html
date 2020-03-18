@@ -1,2 +1,9 @@
-<app-movie-add (movieSubmit)="onSubmit($event)"></app-movie-add>
-<app-movies-list [movies]="movies$ | async" (deleteMovieEmitter)="deleteMovie($event)"></app-movies-list>
+<app-movie-add
+    [movie]="movie"
+    (movieSubmit)="onSubmit($event)">
+</app-movie-add>
+<app-movies-list 
+    [movies]="movies$ | async" 
+    (deleteMovieEvent)="deleteMovie($event)"
+    (itemClickedEvent)="this.movie = $event">
+</app-movies-list>

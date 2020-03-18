@@ -1,7 +1,7 @@
 import { Injectable } from '@angular/core';
 import { MovieService } from '../services/movies.service';
 import { createEffect, Actions, ofType } from '@ngrx/effects';
-import { getMovies, getMoviesSuccess, getMoviesFailed, addMovie, addMovieSuccess, addMovieFailed, deleteMovie, deleteMovieSuccess, deleteMovieFailed } from '../actions/movies-list.actions';
+import { getMovies, getMoviesSuccess, getMoviesFailed, addMovie, addMovieSuccess, addMovieFailed, deleteMovie, deleteMovieSuccess, deleteMovieFailed, editMovie, editMovieSuccess, editMovieFailed } from '../actions/movies-list.actions';
 import { switchMap, map, catchError, mergeMap } from 'rxjs/operators';
 
 @Injectable({ providedIn: 'root' })
@@ -31,6 +31,19 @@ export class MovieEffects {
                 )
             )
         )
+    )
+
+    editMovie$ = createEffect(() => 
+       this.actions$.pipe(
+           ofType(editMovie),
+           switchMap(({ movie }) => 
+                this.movieService.editMovie(movie).pipe(
+                    map(movie => editMovieSuccess({ movie })),
+                    catchError(error => [editMovieFailed(error)])
+                )
+           )
+       )             
+    
     )
 
     deleteMovie$ = createEffect(() => 

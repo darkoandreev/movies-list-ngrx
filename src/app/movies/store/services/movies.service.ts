@@ -19,4 +19,8 @@ export class MovieService {
     public deleteMovie(id: number): Observable<IMovie> {
         return this.http.delete<IMovie>(`${environment.API_URL}movies/${id}`);
     }
+
+    public editMovie(movie: IMovie): Observable<IMovie> {
+        return this.http.put<IMovie>(`${environment.API_URL}movies/${movie.id}`, movie);
+    }
 }

@@ -1,6 +1,7 @@
 import { IMovie } from '../models/movie.interface';
 import { createReducer, on, Action } from '@ngrx/store';
-import { getMoviesSuccess, getMoviesFailed, addMovieSuccess, deleteMovieSuccess, addMovieFailed, deleteMovieFailed } from '../actions/movies-list.actions';
+import { getMoviesSuccess, getMoviesFailed, addMovieSuccess, deleteMovieSuccess, addMovieFailed, deleteMovieFailed, editMovieSuccess, editMovieFailed } from '../actions/movies-list.actions';
+import produce from "immer";
 
 export interface IMoviesListState {
     movies: IMovie[];
@@ -32,6 +33,16 @@ const reducer = createReducer(
     on(addMovieFailed, (state, error) => ({
         ...state,
         movies: [],
+        errorMessage: error.error.message
+    })),
+    on(editMovieSuccess, (state: IMoviesListState, { movie }) => ({
+        ...state,
+        movies: produce(state.movies, movies => {
+            movies[movies.findIndex(x => x.id === movie.id)] = movie
+        })
+    })),
+    on(editMovieFailed, (state, error) => ({
+        ...state,
         errorMessage: error.error.message
     })),
     on(deleteMovieSuccess, (state, { id }) => ({

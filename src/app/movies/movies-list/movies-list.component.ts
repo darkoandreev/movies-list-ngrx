@@ -9,5 +9,6 @@ import { IMovie } from '../store/models/movie.interface';
 })
 export class MoviesListComponent {
   @Input() movies: IMovie[];
-  @Output() deleteMovieEmitter: EventEmitter<number> = new EventEmitter();
+  @Output() deleteMovieEvent: EventEmitter<number> = new EventEmitter();
+  @Output() itemClickedEvent: EventEmitter<IMovie> = new EventEmitter();
 }

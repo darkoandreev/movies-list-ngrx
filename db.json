@@ -1,11 +1,11 @@
 {
   "movies": [
     {
-      "name": "American Pie",
+      "id": 7,
+      "name": "American Pie123",
       "genre": "comedy",
       "duration": 150,
-      "rating": 6.5,
-      "id": 7
+      "rating": 6.5
     },
     {
       "name": "Shutter Island",

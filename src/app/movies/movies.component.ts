@@ -4,7 +4,7 @@ import { IMovie } from './store/models/movie.interface';
 import { Store, select } from '@ngrx/store';
 import { IState } from './store/reducers';
 import { getMoviesList } from './store/selectors';
-import { getMovies, addMovie, deleteMovie } from './store/actions/movies-list.actions';
+import { getMovies, addMovie, deleteMovie, editMovie } from './store/actions/movies-list.actions';
 
 @Component({
   selector: 'app-movies',
@@ -13,7 +13,7 @@ import { getMovies, addMovie, deleteMovie } from './store/actions/movies-list.ac
 })
 export class MoviesComponent implements OnInit {
   movies$: Observable<IMovie[]> = this.store.pipe(select(getMoviesList))
-
+  movie: IMovie;
   constructor(private store: Store<IState>) { }
 
   ngOnInit() {
@@ -21,11 +21,10 @@ export class MoviesComponent implements OnInit {
   }
 
   onSubmit(movie: IMovie): void {
-    this.store.dispatch(addMovie({ movie }));
+    this.store.dispatch(this.movie ? editMovie({ movie }) : addMovie({ movie }));
   }
 
   deleteMovie(id: number): void {
     this.store.dispatch(deleteMovie({ id }));
   }
-
 }
