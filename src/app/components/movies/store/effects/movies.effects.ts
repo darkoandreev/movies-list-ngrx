@@ -2,11 +2,14 @@ import { Injectable } from '@angular/core';
 import { MovieService } from '../services/movies.service';
 import { createEffect, Actions, ofType } from '@ngrx/effects';
 import { getMovies, getMoviesSuccess, getMoviesFailed, addMovie, addMovieSuccess, addMovieFailed, deleteMovie, deleteMovieSuccess, deleteMovieFailed, editMovie, editMovieSuccess, editMovieFailed } from '../actions/movies-list.actions';
-import { switchMap, map, catchError, mergeMap } from 'rxjs/operators';
+import { switchMap, map, catchError, mergeMap, tap } from 'rxjs/operators';
+import { AlertService } from 'src/app/shared/services/alert.service';
 
 @Injectable({ providedIn: 'root' })
 export class MovieEffects {
-    constructor(private actions$: Actions, private movieService: MovieService) { }
+    constructor(private actions$: Actions, 
+                private movieService: MovieService,
+                private alertService: AlertService) { }
 
     loadMovies$ = createEffect(() => 
         this.actions$.pipe(
@@ -17,7 +20,7 @@ export class MovieEffects {
                             map(movies => getMoviesSuccess({ movies })),
                             catchError(error => [getMoviesFailed(error)])
                         )
-                ),
+                )
             )
     )
 
@@ -43,7 +46,6 @@ export class MovieEffects {
                 )
            )
        )             
-    
     )
 
     deleteMovie$ = createEffect(() => 
@@ -56,5 +58,21 @@ export class MovieEffects {
                 )   
             )
         )
+    )
+
+    successNotification$ = createEffect(() => 
+        this.actions$.pipe(
+            ofType(editMovieSuccess, addMovieSuccess, deleteMovieSuccess),
+            tap((data) => this.alertService.openSnackBar('Success', data.type))
+        ),
+        { dispatch: false }
+    )
+
+    errorNotification$ = createEffect(() => 
+        this.actions$.pipe(
+            ofType(editMovieFailed, addMovieFailed, deleteMovieFailed),
+            tap((data) => this.alertService.openSnackBar('Error', data.type))
+        ),
+        { dispatch: false }
     )
 }

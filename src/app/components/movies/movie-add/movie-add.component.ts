@@ -1,6 +1,6 @@
 import { Component, Output, EventEmitter, ChangeDetectionStrategy, Input, OnChanges, SimpleChanges, ViewChild } from '@angular/core';
 import { FormGroup, FormControl } from '@angular/forms';
-import { IMovie } from '../../store/models/movie.interface';
+import { IMovie } from '../store/models/movie.interface';
 import { MatExpansionPanel } from '@angular/material/expansion';
 
 @Component({

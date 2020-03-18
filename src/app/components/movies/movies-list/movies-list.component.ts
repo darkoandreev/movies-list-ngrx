@@ -1,5 +1,5 @@
 import { Component, Input, ChangeDetectionStrategy, Output, EventEmitter } from '@angular/core';
-import { IMovie } from '../../store/models/movie.interface';
+import { IMovie } from '../store/models/movie.interface';
 
 @Component({
   selector: 'app-movies-list',

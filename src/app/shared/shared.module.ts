@@ -4,6 +4,7 @@ import { HeaderComponent } from './components/header/header.component';
 import { MatToolbarModule } from '@angular/material/toolbar';
 import { MatIconModule } from '@angular/material/icon';
 import { FooterComponent } from './components/footer/footer.component';
+import { AlertService } from './services/alert.service';
 
 @NgModule({
   declarations: [HeaderComponent, FooterComponent],
@@ -12,6 +13,7 @@ import { FooterComponent } from './components/footer/footer.component';
     MatToolbarModule,
     MatIconModule,
   ],
-  exports: [HeaderComponent, FooterComponent, MatToolbarModule]
+  exports: [HeaderComponent, FooterComponent, MatToolbarModule],
+  providers: [AlertService]
 })
 export class SharedModule { }
