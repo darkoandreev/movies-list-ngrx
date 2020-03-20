@@ -2,7 +2,7 @@
   "movies": [
     {
       "id": 7,
-      "name": "American Pie1",
+      "name": "American Pie2",
       "genre": "comedy",
       "duration": 150,
       "rating": 6.5
@@ -20,13 +20,6 @@
       "genre": "Drama",
       "duration": 120,
       "rating": 9.5
-    },
-    {
-      "id": 10,
-      "name": "zikina dinastija",
-      "genre": "komedija",
-      "duration": 500,
-      "rating": 8.6
     },
     {
       "name": "Bad Boys 3",

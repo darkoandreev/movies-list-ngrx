@@ -15,15 +15,15 @@ export class MoviesListFacade {
 
   constructor(private store: Store<IState>) { }
 
-  getMovies(): void {
+  get(): void {
     this.store.dispatch(getMovies());
   }
 
-  addMovie(movie: IMovie): void {
+  add(movie: IMovie): void {
     this.store.dispatch(this.movie ? editMovie({ movie }) : addMovie({ movie }));
   }
 
-  deleteMovie(id: number): void {
+  delete(id: number): void {
     this.store.dispatch(deleteMovie({ id }));
   }
 }

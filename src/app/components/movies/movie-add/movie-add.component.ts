@@ -13,7 +13,8 @@ export class MovieAddComponent implements OnChanges {
   @ViewChild(MatExpansionPanel) expansionPanel: MatExpansionPanel;
 
   @Input() movie: IMovie;
-  @Output() movieSubmit: EventEmitter<IMovie> = new EventEmitter();
+
+  @Output() submitEvent: EventEmitter<IMovie> = new EventEmitter();
   @Output() closeEditModeEvent: EventEmitter<void> = new EventEmitter();
 
   public movieForm = new FormGroup({
@@ -33,10 +34,10 @@ export class MovieAddComponent implements OnChanges {
 
   onSubmit(): void {
     const movie = this.movieForm.value as IMovie;
-    this.movieSubmit.emit(movie);
+    this.submitEvent.emit(movie);
   }
 
-  closeEdit(): void {
+  closeEditMode(): void {
     this.movieForm.reset();
     this.expansionPanel.close();
     this.closeEditModeEvent.emit();

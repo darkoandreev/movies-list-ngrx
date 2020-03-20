@@ -15,7 +15,7 @@ export class MovieEffects {
         this.actions$.pipe(
                 ofType(getMovies),
                 mergeMap(() => 
-                    this.movieService.getMovies()
+                    this.movieService.get()
                         .pipe(
                             map(movies => getMoviesSuccess({ movies })),
                             catchError(error => [getMoviesFailed(error)])
@@ -28,7 +28,7 @@ export class MovieEffects {
         this.actions$.pipe(
             ofType(addMovie),
             switchMap(({ movie }) => 
-                this.movieService.addMovie(movie).pipe(
+                this.movieService.add(movie).pipe(
                     map(movie => addMovieSuccess({ movie })),
                     catchError(error => [addMovieFailed(error)])
                 )
@@ -40,7 +40,7 @@ export class MovieEffects {
        this.actions$.pipe(
            ofType(editMovie),
            switchMap(({ movie }) => 
-                this.movieService.editMovie(movie).pipe(
+                this.movieService.edit(movie).pipe(
                     map(movie => editMovieSuccess({ movie })),
                     catchError(error => [editMovieFailed(error)])
                 )
@@ -52,7 +52,7 @@ export class MovieEffects {
         this.actions$.pipe(
             ofType(deleteMovie),
             switchMap(({ id }) => 
-                this.movieService.deleteMovie(id).pipe(
+                this.movieService.delete(id).pipe(
                     map(() => deleteMovieSuccess({ id })),
                     catchError(error => [deleteMovieFailed(error)])
                 )   

@@ -1,10 +1,10 @@
 <app-movie-add
     [movie]="moviesListFacade.movie"
-    (movieSubmit)="onSubmit($event)"
+    (submitEvent)="onSubmit($event)"
     (closeEditModeEvent)="moviesListFacade.movie = null">
 </app-movie-add>
 <app-movies-list 
     [movies]="movies$ | async" 
-    (deleteMovieEvent)="deleteMovie($event)"
+    (deleteEvent)="delete($event)"
     (itemClickedEvent)="moviesListFacade.movie = $event">
 </app-movies-list>

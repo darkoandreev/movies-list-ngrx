@@ -27,7 +27,7 @@
             </mat-form-field>
 
             <mat-action-row>
-                <button (click)="closeEdit()" *ngIf="this.movie" mat-raised-button type="button" color="warn">Close edit mode</button>
+                <button (click)="closeEditMode()" *ngIf="this.movie" mat-raised-button type="button" color="warn">Close edit mode</button>
                 <button mat-raised-button color="warn" type="submit" color="primary">{{ this.movie ? 'Edit movie' : 'Add movie' }}</button>
             </mat-action-row>
         </form>

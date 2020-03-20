@@ -14,14 +14,14 @@ export class MoviesComponent implements OnInit {
   constructor(public moviesListFacade: MoviesListFacade) { }
 
   ngOnInit() {
-    this.moviesListFacade.getMovies();
+    this.moviesListFacade.get();
   }
 
   onSubmit(movie: IMovie): void {
-    this.moviesListFacade.addMovie(movie);
+    this.moviesListFacade.add(movie);
   }
 
-  deleteMovie(id: number): void {
-    this.moviesListFacade.deleteMovie(id);
+  delete(id: number): void {
+    this.moviesListFacade.delete(id);
   }
 }

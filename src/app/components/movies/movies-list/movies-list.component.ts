@@ -9,12 +9,12 @@ import { IMovie } from '../store/models/movie.interface';
 })
 export class MoviesListComponent {
   @Input() movies: IMovie[];
-  @Output() deleteMovieEvent: EventEmitter<number> = new EventEmitter();
+  @Output() deleteEvent: EventEmitter<number> = new EventEmitter();
   @Output() itemClickedEvent: EventEmitter<IMovie> = new EventEmitter();
 
   deleteItem(event: MouseEvent, id: number): void {
     event.preventDefault();
     event.stopImmediatePropagation();
-    this.deleteMovieEvent.emit(id);
+    this.deleteEvent.emit(id);
   }
 }
