@@ -1,7 +1,7 @@
 import { IMoviesListState, moviesReducer } from './movies.reducers';
 import { ActionReducerMap } from '@ngrx/store';
 
-export const moviesFeatureName = 'movies';
+export const moviesFeatureName = 'moviesList';
 
 export interface IState {
     readonly moviesList: IMoviesListState

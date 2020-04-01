@@ -22,11 +22,11 @@
       "rating": 9.5
     },
     {
+      "id": 11,
       "name": "Bad Boys 3",
       "genre": "Action",
       "duration": 120,
-      "rating": 8.7,
-      "id": 11
+      "rating": 8.7
     }
   ]
 }
