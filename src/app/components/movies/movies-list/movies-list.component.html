@@ -1,5 +1,5 @@
 <mat-action-list>
-    <mat-list-item *ngFor="let movie of movies" (click)="itemClickedEvent.emit(movie)">
+    <mat-list-item  @itemAnim  *ngFor="let movie of movies" (click)="itemClickedEvent.emit(movie)">
       {{movie.name}}
       <button mat-icon-button (click)="deleteItem($event, movie.id)">
         <mat-icon class="mat-24">delete</mat-icon>

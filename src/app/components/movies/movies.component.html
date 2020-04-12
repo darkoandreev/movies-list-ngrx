@@ -3,7 +3,7 @@
     (submitEvent)="onSubmit($event)"
     (closeEditModeEvent)="moviesListFacade.movie = null">
 </app-movie-add>
-<app-movies-list 
+<app-movies-list
     [movies]="movies$ | async" 
     (deleteEvent)="delete($event)"
     (itemClickedEvent)="moviesListFacade.movie = $event">
